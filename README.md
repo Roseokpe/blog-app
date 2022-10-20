@@ -1,62 +1,43 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Blog App
 
-# Project Name
-
-> Description the project.
-
+> This is a basic Blog website that allows users to create, edit, comment and delete posts, keeping data in a database. This project implements both authorization and authentication in order to provide extended functionality to logged in and authorized users.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby on Rails
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple by cloning this repository `git@github.com:Roseokpe/blog-app.git` to your machine
 
 ### Prerequisites
 
+- Ruby runtime environment
+- PostgreSQL
+- Rails
+
 ### Setup
 
-### Install
+- Clone the repository using `git@github.com:Roseokpe/blog-app.git`
+- Navigate to the folder using `cd blog-app`
+- Use the following commands to
+  - install necessary gems `bundle install`
+  - install necessary javascript packages `npm install`
+  - run the development server `rails server`
 
-### Usage
+## Author
 
-### Run tests
+👤 **Rose Okpe**
 
-### Deployment
-
-
-
-## Authors
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@roseokpe](https://github.com/roseokpe)
+- Twitter: [@roseokpe](https://twitter.com/roseokpe)
+- LinkedIn: [roseokpe](https://linkedin.com/in/roseokpe)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Roseokpe/blog-app/issues).
 
 ## Show your support
 
@@ -67,9 +48,3 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 - Inspiration
 - etc
-
-## 📝 License
-
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
