@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'ffi'
 
 RSpec.describe Comment, type: :model do
   subject do
