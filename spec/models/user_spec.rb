@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'ffi'
 
 RSpec.describe User, type: :model do
   subject do
@@ -33,12 +34,12 @@ RSpec.describe User, type: :model do
       end
 
       it 'should not accept negative post_counter' do
-        subject.post_counter = -1
+        subject.posts_counter = -1
         expect(subject).to_not be_valid
       end
   
       it 'should not accept non numerical post_counter' do
-        subject.post_counter = 'count'
+        subject.posts_counter = 'count'
         expect(subject).to_not be_valid
       end
     end
