@@ -19,6 +19,13 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
 
+Metrics/CyclomaticComplexity:
+   IgnoredMethods: ['cli_arg_version']
+  
+Metrics/PerceivedComplexity:
+   IgnoredMethods: ['cli_arg_version']
+
+
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
