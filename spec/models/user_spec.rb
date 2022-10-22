@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe User, type: :model do
   subject do
     User.new(name: 'John', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
