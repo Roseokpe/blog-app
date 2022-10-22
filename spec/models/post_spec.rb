@@ -30,15 +30,5 @@ RSpec.describe Post, type: :model do
       subject.likes_counter = nil
       expect(subject).to_not be_valid
     end
-
-    it 'title should not be too long' do
-      subject.title = 'a' * 251
-      expect(subject).to_not be_valid
-    end
-
-    it 'text should not be too long' do
-      subject.text = 'a' * 1001
-      expect(subject).to_not be_valid
-    end
   end
 end
