@@ -1,28 +1,18 @@
 require 'rails_helper'
+require 'ffi'
 
 RSpec.describe Comment, type: :model do
-  subject do
-    Comment.new(user_id: 1, post_id: 1, text: 'This is a comment')
-    before { subject.save }
+  user = User.create(name: 'John', photo: 'https://www.google.com/url', bio: 'I am a software developer',
+                     posts_counter: 3)
+  post = Post.create(title: 'Hello', text: 'Hello world', author_id: user.id, likes_counter: 6, comments_counter: 3)
 
-    it 'user_id should be present' do
-      subject.user_id = nil
-      expect(subject).to_not be_valid
-    end
+  comment = Comment.create(text: 'Hello world', post_id: post.id)
 
-    it 'post_id should be present' do
-      subject.post_id = nil
-      expect(subject).to_not be_valid
-    end
+  context 'Update comments counter' do
+    comment.update_comments_counter
 
-    it 'text should be present' do
-      subject.text = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'text should not be too long' do
-      subject.text = 'a' * 1001
-      expect(subject).to_not be_valid
+    it 'should increment comments counter' do
+      expect(post.comments_counter).to eq(3)
     end
   end
 end
