@@ -1,1 +1,5 @@
-<h1> hellow world </h1>
+<section>
+  <% @users.each do |user| %>
+  <%= render 'layouts/user_card', user: user %>
+  <% end %>
+</section>

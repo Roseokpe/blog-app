@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    # @users = User.all
+    @greetings = 'Hello World!'
   end
 
   def show
