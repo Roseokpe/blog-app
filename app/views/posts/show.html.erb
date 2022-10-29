@@ -1,1 +1,9 @@
-<p> more details on post</p>
+<%# <p> more details on post</p> %>
+<section>
+  <div class="comments">
+    <h3><%= @post.title %> <span class="pr-1">#<%= @post.id %>,</span>  by <%= @user.name %></h3>
+    <h4 class="comment">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></h4>
+    <p><%= @post.text %>.</p>
+  </div>
+  <%= render 'layouts/comments_card', post: @post %>
+</section>

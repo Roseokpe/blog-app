@@ -1,0 +1,7 @@
+<div class="p">
+  <h3 class="view">View <%= post.comments_counter %> previous comments</h3>
+  <% post.return_recent_comments.each do |comment| %>
+    <% author_name =  User.all.find(comment.author_id).name %>
+    <p class="italic"><%= author_name %>: <%= comment.text %></p>
+  <% end %>
+</div>

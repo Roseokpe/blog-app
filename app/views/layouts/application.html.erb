@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlogApp</title>
+    <title>Blog App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,11 @@
   </head>
 
   <body>
+  <navbar class="navbar">
+   <div class="header">User</div>
+    <div class="header">Post</div>
+    <div class="header">Comment</div>  
+  </navbar>
     <%= yield %>
   </body>
 </html>
