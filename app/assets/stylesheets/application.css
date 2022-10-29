@@ -15,14 +15,14 @@
  */
 
 .navbar {
-    display: flex;
-   background-color: #000000;
-   color: #a9a1a1;
-   gap: 24px;
-   flex-direction: row;
-   height: 60px;
-   align-items: center;
- }
+  display: flex;
+  background-color: #000;
+  color: #a9a1a1;
+  gap: 24px;
+  flex-direction: row;
+  height: 60px;
+  align-items: center;
+}
 
 .grid {
   display: grid;
