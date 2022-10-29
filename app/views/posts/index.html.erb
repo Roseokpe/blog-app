@@ -1,1 +1,21 @@
-<h1>posts display<h1>
+<%= render 'layouts/user_card', user: @user %>
+
+<% @posts.each do |post| %>
+  <%= render 'layouts/post_card', post: post %>
+  <%= render 'layouts/comments_card', post: post %>
+<% end %>
+<div class="flex">
+  <span class="text">
+      Showing <span class="show">1</span> to <span class="">2 posts</span> of <span class=" "><%= @user.posts_counter %></span> Entries
+  </span>
+  <div class="">
+    <button class="white">
+      Prev
+    </button>
+    <button class="white">
+      Next
+    </button>
+  </div>
+</div>
+
+

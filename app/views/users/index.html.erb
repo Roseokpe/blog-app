@@ -1,5 +1,8 @@
+
 <section>
   <% @users.each do |user| %>
-  <%= render 'layouts/user_card', user: user %>
+  <%# this is the partial %>
+  <%= render 'layouts/user_card', user: user %>  
   <% end %>
 </section>
+

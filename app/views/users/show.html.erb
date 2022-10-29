@@ -1,1 +1,19 @@
-<p> show each user </p>
+<%# <p> show each user </p> %>
+
+<section>
+  <%= render 'layouts/user_card', user: @user %>
+  <div class="user">
+    <h3 class="bio">Bio</h3>
+    <h4 class="">
+      <%= @user.bio %>
+    </h4>
+  </div>
+  <div>
+    <% @user.posts.each do |post| %>
+      <%= render 'layouts/post_card', post: post %>
+    <% end %>
+  </div>
+  <div class="centerlize">
+    <button type="button" class="button">See all posts</button>
+  </div>
+</section>
