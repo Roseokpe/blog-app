@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
+    set_user
   end
 
   private
