@@ -5,5 +5,9 @@
     <%= text_body %>.
   </h4>
   <p class="font-bold">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+  <%= form_with url: "/users/#{post.author_id}/posts/#{post.id}/likes" do |form| %>
+    <%= form.submit "Like" %>
+  <% end %>
+  <%= link_to 'add comment', new_user_post_comment_path(post.author_id, post.id) %>
 </div>
 
