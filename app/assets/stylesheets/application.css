@@ -1,4 +1,4 @@
-/*
+/* 
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar {
+    display: flex;
+   background-color: #000000;
+   color: #a9a1a1;
+   gap: 24px;
+   flex-direction: row;
+   height: 60px;
+   align-items: center;
+ }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.drop-shadow {
+  box-shadow: 0 0 10px rgba(196, 99, 99, 0.5);
+}
