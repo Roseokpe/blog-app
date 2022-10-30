@@ -9,7 +9,7 @@
     </h4>
   </div>
   <div>
-    <% @user.posts.each do |post| %>
+    <% @user.return_recent_posts.each do |post| %>
       <%= render 'layouts/post_card', post: post %>
     <% end %>
   </div>
