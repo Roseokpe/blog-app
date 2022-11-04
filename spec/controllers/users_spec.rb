@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :request do
-  describe 'GET index' do
+  describe "GET /users" do
     it 'check if response status was correct' do
       get user_path(1)
       expect(response).to be_successful
