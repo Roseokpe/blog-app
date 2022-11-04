@@ -15,4 +15,6 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
   # config.profile_examples = 10
+ 
 end
+
