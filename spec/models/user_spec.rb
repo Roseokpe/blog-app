@@ -1,46 +1,32 @@
 require 'rails_helper'
-require 'ffi'
 
 RSpec.describe User, type: :model do
-  subject do
-    User.new(name: 'John', photo: 'https://www.google.com/url', bio: 'I am a software developer',
-             posts_counter: 3)
-  end
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
 
   before { subject.save }
 
-  context 'Return valid user' do
-    it 'should accept name' do
-      expect(subject.name).to eq('John')
-    end
+  it 'name should be present' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
 
-    it 'should accept photo' do
-      expect(subject.photo).to eq('https://www.google.com/url')
-    end
+  it 'name should not be too short' do
+    subject.name = 'a'
+    expect(subject).to_not be_valid
+  end
 
-    it 'should accept bio' do
-      expect(subject.bio).to eq('I am a software developer')
-    end
+  it 'name should not be too long' do
+    subject.name = 'a' * 51
+    expect(subject).to_not be_valid
+  end
 
-    it 'should accept posts_counter' do
-      expect(subject.posts_counter).to eq(3)
-    end
+  it 'posts_counter should not be string' do
+    subject.posts_counter = 'abc'
+    expect(subject).to_not be_valid
+  end
 
-    context 'Return invalid user' do
-      it 'should not accept blank name' do
-        subject.name = nil
-        expect(subject).to_not be_valid
-      end
-
-      it 'should not accept blank negative post counter' do
-        subject.posts_counter = -1
-        expect(subject).to_not be_valid
-      end
-
-      it 'should not accept blank non-integer post counter' do
-        subject.posts_counter = 1.5
-        expect(subject).to_not be_valid
-      end
-    end
+  it 'posts_counter should not be negative value' do
+    subject.posts_counter = -2
+    expect(subject).to_not be_valid
   end
 end
