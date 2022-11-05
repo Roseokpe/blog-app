@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   load_and_authorize_resource
 
   def index
@@ -39,18 +38,15 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     user = User.find(post.user_id)
     user.posts_counter -= 1
-    post.destroy 
+    post.destroy
     user.save
     flash[:success] = ' deleted successfully'
     redirect_to user_posts_path(user)
-
   end
-
 
   private
 
   def post_params
     params.require(:new_post).permit(:title, :text, :comments_counter, :likes_counter)
   end
-
 end

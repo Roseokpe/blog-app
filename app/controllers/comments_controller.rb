@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @post = Post.find(@comment.post_id)
-    @post.comments_counter -= 1 
+    @post.comments_counter -= 1
     @comment.destroy
     @post.save
     flash[:success] = 'deleted successfully'
