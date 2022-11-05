@@ -1,42 +1,40 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
-  before_action :set_user, only: %i[index show]
-
   def index
-    @posts = Post.all
+    @user = User.find(params[:user_id])
+    @pagy, @posts = pagy(@user.posts.order(created_at: :desc), items: 3)
   end
 
   def show
-    set_post
-  end
-
-  def create
-    @post = Post.new(post_params)
-    @post.author = current_user
-    @post.likes_counter = 0
-    @post.comments_counter = 0
-    if @post.save
-      redirect_to user_posts_path(current_user)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
   end
 
   def new
-    @post = Post.new
+    @user = User.find(params[:user_id])
+    @post = @user.posts.new
+  end
+
+  def create
+    @user = User.find(params[:user_id])
+    @post = @user.posts.new(post_params)
+    @post.comments_counter = 0
+    @post.likes_counter = 0
+    respond_to do |format|
+      format.html do
+        if @post.save
+          flash[:success] = 'Post created successfully'
+          redirect_to user_posts_path(@user)
+        else
+          flash[:error] = 'Post not created'
+          render :new
+        end
+      end
+    end
   end
 
   private
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:new_post).permit(:title, :text)
   end
 end

@@ -1,19 +1,17 @@
-<%# <p> show each user </p> %>
-
-<section>
-  <%= render 'layouts/user_card', user: @user %>
-  <div class="user">
-    <h3 class="bio">Bio</h3>
-    <h4 class="">
-      <%= @user.bio %>
-    </h4>
-  </div>
-  <div>
-    <% @user.return_recent_posts.each do |post| %>
-      <%= render 'layouts/post_card', post: post %>
+<section class="list">
+<%= render 'partials/user', user: @user %>
+<div class='bio'>
+<h3>Bio </h3>
+<p><%= @user.bio %></p>
+<button class='btn'><%= link_to 'Create Post', new_user_post_path(@user)%></button>
+</div>
+<ul class='card'>
+    <% @user.recent_three_posts.each_with_index do |post, index| %>
+        <p>Post #<%= index+1 %></p>
+        <%= render 'partials/post', post: post %>
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>"> See more</a>
     <% end %>
-  </div>
-  <div class="centerlize">
-    <button type="button" class="button">See all posts</button>
-  </div>
+</ul>
+<button class="btn"><%= link_to "See all posts", user_posts_path(@user.id)%></button>
 </section>
+

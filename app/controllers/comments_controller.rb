@@ -1,31 +1,23 @@
 class CommentsController < ApplicationController
-  before_action :set_user, only: [:create]
-  before_action :set_post, only: [:create]
-
   def create
-    @comment = Comment.new(comment_params)
-    @comment.post = @post
-    @comment.author = current_user
-    if @comment.save
-      redirect_to user_post_path(@user, @post)
+    post = Post.find(params[:post_id])
+    comment = Comment.new(comment_params)
+    comment.user = current_user
+    comment.post = post
+    if comment.save
+      flash[:success] = 'Comment created successfully'
     else
-      render :new, status: :unprocessable_entity
+      flash[:error] = 'Comment not created'
     end
+    redirect_to user_post_path(current_user, post)
   end
 
   def new
     @comment = Comment.new
+    @post = Post.find(params[:post_id])
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def set_post
-    @post = Post.find(params[:post_id])
-  end
 
   def comment_params
     params.require(:comment).permit(:text)

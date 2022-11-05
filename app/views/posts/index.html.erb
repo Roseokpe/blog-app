@@ -1,23 +1,12 @@
-<%= render 'layouts/user_card', user: @user %>
-
-<% posts= @posts.order(created_at: :desc) %>
-
-<% posts.each do |post| %>
-  <%= render 'layouts/post_card', post: post %>
-  <%= render 'layouts/comments_card', post: post %>
-<% end %>
-<div class="flex">
-  <span class="text">
-      Showing <span class="show">1</span> to <span class="">2 posts</span> of <span class=" "><%= @user.posts_counter %></span> Entries
-  </span>
-  <div class="">
-    <button class="white">
-      Prev
-    </button>
-    <button class="white">
-      Next
-    </button>
-  </div>
-</div>
-
-
+<section class='list'>
+  <%= render'partials/user', user: @user %>
+<button class="back"><%= link_to 'back', users_path %></button>
+   <% @posts.each do |post| %>
+    <ul class="post-list">
+    <%= render 'partials/post', post: post %>
+    </ul>
+    <% end %>
+  <div class='pagy'>
+ <%== pagy_nav(@pagy) %>
+    </div>
+</section>
