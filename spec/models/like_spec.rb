@@ -1,18 +1,17 @@
 require 'rails_helper'
-require 'ffi'
 
 RSpec.describe Like, type: :model do
-  user = User.create(name: 'John', photo: 'https://www.google.com/url', bio: 'I am a software developer',
-                     posts_counter: 3)
-  post = Post.create(title: 'Hello', text: 'Hello world', author_id: user.id, likes_counter: 6, comments_counter: 3)
+  subject { Like.new(user_id: 1, post_id: 2) }
 
-  like = Like.create(author_id: user.id, post_id: post.id)
+  before { subject.save }
 
-  context 'Update likes counter' do
-    like.update_likes_counter
+  it 'user_id should be present' do
+    subject.user_id = 1
+    expect(subject).to_not be_valid
+  end
 
-    it 'should increment likes counter' do
-      expect(post.likes_counter).to eq(6)
-    end
+  it 'post_id should be present' do
+    subject.post_id = 2
+    expect(subject).to_not be_valid
   end
 end

@@ -1,13 +1,16 @@
-<%= form_with model: @post, url: user_posts_path do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: 'Title of post' %>
+<section class='added'>
+<h3>Create Post</h3>
+<%= form_with model: @post, url: user_posts_path, method: :post, scope: :new_post do |form| %>
+  <div class="label">
+    <%= form.label :Subject %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
-  <br>
-  <div>
-    <%= form.label :text %>
-    <%= form.text_area :text, placeholder: 'Description of post' %>
+  <div class="add">
+    <%= form.label :Comment %>
+    <%= form.text_area :text, class: "form-control text" %>
   </div>
-  <br>
-  <%= form.submit %>
+    <div class='submit'>
+    <%= form.submit %>
+    </div>
 <% end %>
+</section>
